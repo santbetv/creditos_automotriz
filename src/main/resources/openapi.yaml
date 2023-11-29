@@ -1,0 +1,160 @@
+openapi: 3.0.3
+info:
+  title: Encrypt Decrypt message
+  description: POC para mostrar la funcionalidad de encriptacion y desencriptacion de mensajes
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: edjacome@pichincha.com
+  version: 0.0.1
+servers:
+  - url: http://localhost:8080/v1
+tags:
+  - name: person
+    description: Administracion de personas
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+paths:
+  /person:
+    put:
+      tags:
+        - person
+      summary: Update an existing person
+      description: Update an existing person by Id
+      operationId: updatePerson
+      requestBody:
+        description: Update an existent person
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonDto'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonDto'            
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Person not found
+        '405':
+          description: Validation exception
+    post:
+      tags:
+        - person
+      summary: Add a new person
+      description: Add a new person
+      operationId: addPerson
+      requestBody:
+        description: Create a new person
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonDto'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonDto'
+        '405':
+          description: Invalid input
+  /person/{firstName}:
+    get:
+      tags:
+        - person
+      summary: Finds Person by name
+      description: Get person by name
+      operationId: findPersonByName
+      parameters:
+        - name: firstName
+          in: path
+          description: Name values that need to be considered for filter
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonDto'            
+        '400':
+          description: Invalid name value
+  /client:
+   post:
+      tags:
+        - client
+      summary: Add a new client
+      description: Add a new client
+      operationId: addClient
+      requestBody:
+        description: Create a new client
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientDto'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonDto'
+        '405':
+          description: Invalid input
+    
+components:
+  schemas:
+    PayloadDto:
+      type: object
+      properties:
+        messageUuuid:
+          type: string
+        key:
+          type: string
+        body:
+          type: string
+    PersonDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        firstName:
+          type: string
+          example: John
+        lastName:
+          type: string
+          example: James
+        email:
+          type: string
+          example: john@email.com
+        phone:
+          type: string
+          example: '12345'
+    ClientDto:
+      type: object
+      properties: 
+        id:
+          type: integer
+          format: int64
+        accountNumber:
+          type: string
+        state:
+          type: string
+        accountType:
+          type: string
+      
+   
+ 

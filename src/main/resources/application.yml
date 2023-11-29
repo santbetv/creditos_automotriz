@@ -1,0 +1,54 @@
+server:
+  port: '8080'
+spring:
+  application:
+    name: cdb-msa-testproject
+  header:
+    channel: digital
+    medium: web
+  datasource:
+    url: jdbc:h2:mem:/home/rizzoli/Documentos/SqlH2/bancopichincha;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: Colombia12
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+#  datasource:
+#      username: root
+#      password: amorbb123
+#      url: jdbc:mysql://localhost:3306/bancopichincha?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#  jpa:
+#      database-platform: org.hibernate.dialect.MySQL8Dialect
+#      hibernate:
+#        ddl-auto: create-drop
+#      show-sql: true
+#      properties:
+#        hibernate:
+#          format_sql: true
+  jackson:
+    time-zone: America/Bogota
+    locale: es_CO
+  h2:
+    console:
+      enabled: true
+      path: /h2
+
+
+
+
+
+
+
+
+
+
+
+

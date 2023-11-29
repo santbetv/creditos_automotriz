@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  namespace: default
+  name: cdb-msa-testproject
+  description: POC para mostrar la funcionalidad de encriptacion y desencriptacion de mensajes
+  tags:
+    - dominio-bian
+    - subdominio-bian
+    - tecnologia
+    - bp-mdpag-des-debito
+    - celula-debito-y-prepago
+    - capa-ddd
+
+  links:
+  - url: #Ingresa url del repositorio
+    icon: link
+    title: Website
+
+  - url: https://app.swaggerhub.com/apis/Banco-Pichincha7/ #api-dm-customer-contact-information-v1/1.0.0 Autualizar el link del contrato en swagger hub
+    icon: link
+    title: OpenApi
+  
+  - url: https://pichincha.atlassian.net/wiki/spaces/ #CDSRL/pages/2808054060/Documentaci+n+T+cnica+de+Desarrollo+de+Software Actualizar el link de la documentación tectica
+    icon: techdocs
+    title: DocumentaciónTecnica
+
+  annotations:
+    dev.azure.com/project-repo: /cdb-msa-testproject
+    dynatrace.com/dynatrace-entity-id: SERVICE-C239FA30AC6CB3A1 #Actualizar con el identificador de dynatrece
+
+spec:
+  type: system
+  owner: sbetancu@pichincha.com
+  system: frm-cli-optimusframework
+  dependsOn:
+    - component:frm-spa-optimus-core
+  domain: Optimus
+  lifecycle: development

@@ -1,0 +1,99 @@
+methodArgumentNotValidException:
+  title: Your request parameters didn't validate.
+  detail: Invalid request content.
+  type:
+  resource:
+  backend:
+  component:
+  instance:
+  errors:
+missingRequestHeaderException:
+  title: Your request parameters didn't validate.
+  detail: Missing required headers.
+  type:
+  resource:
+  backend:
+  component:
+  instance:
+  errors:
+httpMessageNotReadableException:
+  title: Your request parameters didn't validate.
+  detail: Invalid request content.
+  type:
+  resource:
+  backend:
+  component:
+  instance:
+  errors:
+notParameterizedException:
+  title: Internal error.
+  detail: Internal error in service.
+  type:
+  resource:
+  backend:
+  component:
+  instance:
+  errors:
+connectExceptionClient:
+  title: Connection refused.
+  detail: The server is not ready to handle the request.
+  type:
+  resource:
+  backend:
+  component:
+  instance:
+  errors:
+notFoundException:
+  title: Resource not found.
+  detail: Resource not found in the service.
+  type:
+  resource:
+  backend:
+  component:
+  instance:
+  errors:
+unauthorizedException:
+  title: Unauthorized.
+  detail: Unauthorized to this service.
+  type:
+  resource:
+  backend:
+  component:
+  instance:
+  errors:
+forbiddenException:
+  title: Forbidden.
+  detail: Access is permanently prohibited.
+  type:
+  resource:
+  backend:
+  component:
+  instance:
+  errors:
+badRequestException:
+  title: Your request parameters didn't validate.
+  detail: Invalid request content.
+  type:
+  resource:
+  backend:
+  component:
+  instance:
+  errors:
+internalServerException:
+  title: Internal error.
+  detail: Internal server error.
+  type:
+  resource:
+  backend:
+  component:
+  instance:
+  errors:
+methodNotAllowedException:
+  title: Internal error.
+  detail: Internal server error.
+  type:
+  resource:
+  backend:
+  component:
+  instance:
+  errors:
