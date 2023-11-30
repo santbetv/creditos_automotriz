@@ -15,6 +15,70 @@ tags:
       description: Find out more
       url: http://swagger.io
 paths:
+  /cliente:
+    post:
+      tags:
+        - cliente
+      summary: Add a new cliente
+      description: Add a new cliente
+      operationId: addCliente
+      requestBody:
+        description: Create a new cliente
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClienteDto'
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClienteDto'
+        '405':
+          description: Invalid input
+    put:
+      tags:
+        - cliente
+      summary: Update an existing cliente
+      description: Update an existing cliente by Id
+      operationId: updateCliente
+      requestBody:
+        description: Update an existent cliente
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClienteDto'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClienteDto'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Cliente not found
+        '405':
+          description: Validation exception
+    get:
+      tags:
+        - cliente
+      summary: Get all clientes
+      description: Get a list of all clientes
+      operationId: getAllClientes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClienteDto'
   /person:
     put:
       tags:
@@ -89,29 +153,6 @@ paths:
                   $ref: '#/components/schemas/PersonDto'            
         '400':
           description: Invalid name value
-  /client:
-   post:
-      tags:
-        - client
-      summary: Add a new client
-      description: Add a new client
-      operationId: addClient
-      requestBody:
-        description: Create a new client
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ClientDto'
-        required: true
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PersonDto'
-        '405':
-          description: Invalid input
     
 components:
   schemas:
@@ -143,18 +184,61 @@ components:
         phone:
           type: string
           example: '12345'
-    ClientDto:
+    ClienteDto:
       type: object
-      properties: 
-        id:
+      properties:
+        fechaNacimiento:
+          type: string
+          format: date
+          example: '1990-03-12'
+          description: 'Fecha de nacimiento en formato YYYY-MM-DD.'
+        sujetoCredito:
+          type: boolean
+          example: true
+          description: 'Indica si el cliente es sujeto de crédito.'
+        idCliente:
           type: integer
           format: int64
-        accountNumber:
+          example: 1
+          description: 'Identificador único del cliente.'
+        apellidos:
           type: string
-        state:
+          example: 'González'
+          description: 'Apellidos del cliente.'
+        direccion:
           type: string
-        accountType:
+          example: 'Calle 123, Apt. 456'
+          description: 'Dirección del cliente.'
+        estadoCivil:
           type: string
+          example: 'Soltero'
+          description: 'Estado civil del cliente.'
+        identificacion:
+          type: string
+          example: '1053456789'
+          description: 'Número de identificación del cliente.'
+          pattern: '^\d{10}$'
+        identificacionConyugue:
+          type: string
+          example: '75105163'
+          description: 'Número de identificación del cónyuge.'
+          pattern: '^\d{10}$'
+        nombreConyugue:
+          type: string
+          example: 'Adriana Posada'
+          description: 'Nombre del cónyuge.'
+          minLength: 2
+          maxLength: 150
+        nombres:
+          type: string
+          example: 'Carlos'
+          description: 'Nombres del cliente.'
+          minLength: 2
+          maxLength: 150
+        telefono:
+          type: string
+          example: '555-1234'
+          description: 'Número de teléfono del cliente.'
       
    
  

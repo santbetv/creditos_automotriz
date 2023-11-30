@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -20,6 +21,9 @@ public class ClientePatioEntity implements Serializable {
     private Long idCliente;
     @Column(name = "id_patio")
     private Long idPatio;
+    @Column(name = "fecha_asignacion")
+    private LocalDate fechaAsignacion;
+
 
 
 }
