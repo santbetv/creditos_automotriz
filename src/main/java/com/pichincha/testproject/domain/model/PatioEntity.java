@@ -17,10 +17,13 @@ public class PatioEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_patio")
     private Long idPatio;
+    @Column(nullable = false)
     private String nombre;
+    @Column(nullable = false)
     private String telefono;
+    @Column(nullable = false)
     private String direccion;
-    @Column(name = "numero_punto_venta")
+    @Column(name = "numero_punto_venta", nullable = false)
     private String numeroPuntoVenta;
 
     @JsonIgnoreProperties({"objPatioEjecutivo"})

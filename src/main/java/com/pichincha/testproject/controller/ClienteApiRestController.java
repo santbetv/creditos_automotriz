@@ -3,6 +3,7 @@ package com.pichincha.testproject.controller;
 
 import com.pichincha.services.server.ClienteApi;
 import com.pichincha.services.server.models.ClienteDto;
+import com.pichincha.testproject.exception.BussinesRuleException;
 import com.pichincha.testproject.service.ClienteService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,15 +35,49 @@ public class ClienteApiRestController implements ClienteApi {
         }
     }
 
+//    @Override
+//    @PostMapping("/cliente")
+//    public ResponseEntity<ClienteDto> addCliente(@Valid ClienteDto clienteDto) {
+//        ClienteDto save = clienteService.save(clienteDto);
+//        return ResponseEntity.ok(save);
+//    }
+
+
     @Override
     @PostMapping("/cliente")
-    public ResponseEntity<ClienteDto> addCliente(ClienteDto clienteDto) {
-        return ClienteApi.super.addCliente(clienteDto);
+    public ResponseEntity<ClienteDto> addCliente(@RequestBody ClienteDto clienteDto) {
+        ClienteDto save = null;
+        try {
+            save = clienteService.save(clienteDto);
+        } catch (BussinesRuleException e) {
+            throw new RuntimeException(e);
+        }
+        return ResponseEntity.status(201).body(save);
+    }
+
+
+    @Override
+    @GetMapping("/cliente/{idCliente}")
+    public ResponseEntity<ClienteDto> findPersonByIdCliente(@PathVariable String idCliente) {
+        ClienteDto data = null;
+        try {
+            data = clienteService.findById(Long.parseLong(idCliente));
+        } catch (BussinesRuleException e) {
+            throw new RuntimeException(e);
+        }
+        return ResponseEntity.status(200).body(data);
     }
 
     @Override
-    @PutMapping("/cliente/{id}")
-    public ResponseEntity<ClienteDto> updateCliente(ClienteDto clienteDto) {
-        return ClienteApi.super.updateCliente(clienteDto);
+    @PutMapping("/cliente/{idCliente}")
+    public ResponseEntity<ClienteDto> updatePersonByIdCliente(@PathVariable String idCliente, @RequestBody ClienteDto clienteDto) {
+
+        ClienteDto save = null;
+        try {
+            save = clienteService.put(clienteDto,Long.parseLong(idCliente));
+        } catch (BussinesRuleException e) {
+            throw new RuntimeException(e);
+        }
+        return ResponseEntity.status(200).body(save);
     }
 }

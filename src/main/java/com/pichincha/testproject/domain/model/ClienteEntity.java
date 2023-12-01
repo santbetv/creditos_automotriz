@@ -17,18 +17,23 @@ public class ClienteEntity extends PersonaEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cliente")
+    @Column(name = "id_cliente", nullable = false)
     private Long idCliente;
-    @Column(name = "estado_civil")
-    private String estadoCivil;
-    @Size(min = 1, max = 10, message = "el tamaño debe de estar entre 1 y 10")
-    @Column(name = "identificacion_conyugue")
-    private String identificacionConyugue;
-    @Column(name = "nombre_conyugue")
-    private String nombreConyugue;
-    @Column(name = "sujeto_credito")
-    private Boolean sujetoCredito;
+
     @NotEmpty(message = "no puede estar vacio")
-    @Column(name = "fecha_nacimiento",nullable = false)
+    @Column(name = "estado_civil", nullable = false)
+    private String estadoCivil;
+
+    @Size(min = 1, max = 10, message = "el tamaño debe de estar entre 1 y 10")
+    @Column(name = "identificacion_conyugue", nullable = false)
+    private String identificacionConyugue;
+
+    @Column(name = "nombre_conyugue", nullable = false)
+    private String nombreConyugue;
+
+    @Column(name = "sujeto_credito", nullable = false)
+    private Boolean sujetoCredito;
+
+    @Column(name = "fecha_nacimiento", nullable = false)
     private LocalDate fechaNacimiento;
 }

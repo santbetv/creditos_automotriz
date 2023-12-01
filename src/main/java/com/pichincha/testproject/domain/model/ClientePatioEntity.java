@@ -17,11 +17,11 @@ public class ClientePatioEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_clientes_patios")
     private Long idClientePatios;
-    @Column(name = "id_cliente")
+    @Column(name = "id_cliente", nullable = false)
     private Long idCliente;
-    @Column(name = "id_patio")
+    @Column(name = "id_patio", nullable = false)
     private Long idPatio;
-    @Column(name = "fecha_asignacion")
+    @Column(name = "fecha_asignacion", nullable = false)
     private LocalDate fechaAsignacion;
 
 

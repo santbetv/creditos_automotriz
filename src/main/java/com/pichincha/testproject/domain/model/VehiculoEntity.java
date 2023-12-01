@@ -15,15 +15,19 @@ public class VehiculoEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_vehiculo")
     private Long idVehiculo;
+    @Column(nullable = false, unique = true)
     private String placa;
+    @Column(nullable = false)
     private String modelo;
-    @Column(name = "nro_de_chasis")
+    @Column(name = "nro_de_chasis",nullable = false)
     private String nroDeChasis;
     @ManyToOne
-    @JoinColumn(name = "id_marca")
+    @JoinColumn(name = "id_marca",nullable = false)
     private MarcaEntity marca;
     private String tipo;
+    @Column(nullable = false)
     private String cilindraje;
+    @Column(nullable = false)
     private String avaluo;
 
 }
