@@ -1,5 +1,6 @@
 package com.pichincha.testproject.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +20,11 @@ public class EjecutivoEntity  extends PersonaEntity implements Serializable {
     private Long idEjecutivo;
     private String celular;
     private Byte edad;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "objPatioEjecutivo", cascade = CascadeType.ALL)
-    private List<PatioEntity> patio;
+
+//    @JsonIgnoreProperties({"objPatioEjecutivo"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_patio")
+    private PatioEntity objPatioEjecutivo;
+
+
 }

@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @Entity
@@ -24,7 +26,7 @@ public class SolicitudCreditoEntity {
     @Column(name = "id_ejecutivo")
     private Long idEjecutivo;
     @Column(name = "fecha_de_elaboracion")
-    private String fechaElaboracion;
+    private LocalDate fechaElaboracion;
     @Column(name = "meses_plazo")
     private String mesesPlazo;
     private String cuotas;

@@ -119,6 +119,7 @@ public class ClientePatioServiceImpl implements ClientePatioService {
 
             clientePE.setIdCliente(cliente.getIdCliente());
             clientePE.setIdPatio(patio.getIdPatio());
+            clientePE.setFechaAsignacion(clientePatioDto.getFechaAsignacion());
 
             ClientePatioEntity vehiculoDtoUpdate = clientePatioRepository.save(clientePE);
             return this.findById(vehiculoDtoUpdate.getIdClientePatios());

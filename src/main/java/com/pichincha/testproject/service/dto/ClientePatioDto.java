@@ -4,6 +4,7 @@ import com.pichincha.services.server.models.ClienteDto;
 import com.pichincha.services.server.models.PatiosDto;
 import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Getter
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientePatioDto {
+public class ClientePatioDto implements Serializable {
     private Long idClientePatios;
     private ClienteDto clienteDto;
     private PatiosDto patiosDto;

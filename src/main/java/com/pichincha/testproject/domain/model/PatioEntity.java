@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,8 +27,6 @@ public class PatioEntity implements Serializable {
     @Column(name = "numero_punto_venta", nullable = false)
     private String numeroPuntoVenta;
 
-    @JsonIgnoreProperties({"objPatioEjecutivo"})
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_ejecutivo")
-    private EjecutivoEntity objPatioEjecutivo;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "objPatioEjecutivo", cascade = CascadeType.ALL)
+//    private List<EjecutivoEntity> ejecutivo;
 }
