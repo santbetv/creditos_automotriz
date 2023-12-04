@@ -10,6 +10,6 @@ Con base de datos precargada:
 
 [Base de datos](https://github.com/santbetv/creditos_automotriz/blob/main/src/main/resources/import.sql)
 
-Prubas en postman
+Pruebas en postman
 
 
