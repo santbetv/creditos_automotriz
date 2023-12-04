@@ -8,6 +8,6 @@ Con arquitectura modular en spring boot, db h2 y Unit test TDD.
 
 Con base de datos precargada:
 
-https://github.com/santbetv/creditos_automotriz/blob/main/src/main/resources/import.sql
+[This link](https://github.com/santbetv/creditos_automotriz/blob/main/src/main/resources/import.sql)
 
 
